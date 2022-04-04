@@ -32,7 +32,8 @@ async def create_book(book: Book, db: AsyncSession = Depends(dependencies.get_db
 
     return db_book
 
-@router.post("/api/books/filters", response_model=typing.List[Book])
+
+@router.post("/api/books/filters/", response_model=typing.List[Book])
 async def create_book(filterBook: FilterBook, db: AsyncSession = Depends(dependencies.get_db)):
     books = await book_repository.gets(db, filter=filterBook)
 

@@ -49,5 +49,5 @@ async def update_book(book: Book, db: AsyncSession = Depends(dependencies.get_db
 
 
 @router.delete("/api/books/")
-async def delete_book(subject: Book, db: AsyncSession = Depends(dependencies.get_db)):
-    await book_repository.delete(db, subject)
+async def delete_book(book: Book, db: AsyncSession = Depends(dependencies.get_db)):
+    await book_repository.delete(db, book)

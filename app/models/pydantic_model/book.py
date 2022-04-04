@@ -10,15 +10,15 @@ from app.models.pydantic_model.warehouse import Warehouse
 
 class Book(BaseModel):
     book_id: typing.Optional[int]
-    name: str
+    name: typing.Optional[str]
     publishing_house_id: typing.Optional[int]
     printing_year: typing.Optional[int]
-    isbn: str
+    isbn: typing.Optional[str]
 
     publishing_house: typing.Optional[PublishingHouse]
-    subjects: typing.List[Subject] = []
-    warehouses: typing.List[Warehouse] = []
-    authors: typing.List[Author] = []
+    subjects: typing.Optional[typing.List[Subject]] = []
+    warehouses: typing.Optional[typing.List[Warehouse]] = []
+    authors: typing.Optional[typing.List[Author]] = []
 
     class Config:
         orm_mode = True
